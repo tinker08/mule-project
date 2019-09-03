@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="poc-asset-to-exchange-reuseFlow" doc:id="c59af279-9b2a-48c2-bc88-e1a25e8fa6d9" >
+		<ee:transform doc:name="Transform Message" doc:id="d8d53b4a-b723-41c8-901f-340ce217bd8b" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{"menu": {
+    "header": "SVG Viewer",
+    "items": [
+        {"id": "Open"},
+        {"id": "OpenNew", "label": "Open New"},
+        null,
+        {"id": "ZoomIn", "label": "Zoom In"},
+        {"id": "ZoomOut", "label": "Zoom Out"},
+        {"id": "OriginalView", "label": "Original View"},
+        null,
+        {"id": "Quality"},
+        {"id": "Pause"},
+        {"id": "Mute"},
+        null,
+        {"id": "Find", "label": "Find..."},
+        {"id": "FindAgain", "label": "Find Again"},
+        {"id": "Copy"},
+        {"id": "CopyAgain", "label": "Copy Again"},
+        {"id": "CopySVG", "label": "Copy SVG"},
+        {"id": "ViewSVG", "label": "View SVG"},
+        {"id": "ViewSource", "label": "View Source"},
+        {"id": "SaveAs", "label": "Save As"},
+        null,
+        {"id": "Help"},
+        {"id": "About", "label": "About Adobe CVG Viewer..."}
+    ]
+}}
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
